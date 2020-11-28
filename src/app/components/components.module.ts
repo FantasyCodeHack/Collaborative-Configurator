@@ -6,8 +6,6 @@ import { NouisliderModule } from 'ng2-nouislider';
 import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { RouterModule } from '@angular/router';
 
-import { BasicelementsComponent } from './basicelements/basicelements.component';
-import { NavigationComponent } from './navigation/navigation.component';
 import { TypographyComponent } from './typography/typography.component';
 import { NucleoiconsComponent } from './nucleoicons/nucleoicons.component';
 import { ComponentsComponent } from './components.component';
@@ -26,8 +24,6 @@ import { NgbdModalContent } from './modal/modal.component';
     ],
     declarations: [
         ComponentsComponent,
-        BasicelementsComponent,
-        NavigationComponent,
         TypographyComponent,
         NucleoiconsComponent,
         NotificationComponent,
