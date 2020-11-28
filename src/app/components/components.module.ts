@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 
 import { TypographyComponent } from './typography/typography.component';
 import { NucleoiconsComponent } from './nucleoicons/nucleoicons.component';
+import { ScenaObjectComponent } from './scena-object/scena-object.component';
 import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalComponent } from './modal/modal.component';
@@ -28,7 +29,8 @@ import { NgbdModalContent } from './modal/modal.component';
         NucleoiconsComponent,
         NotificationComponent,
         NgbdModalComponent,
-        NgbdModalContent
+        NgbdModalContent,
+        ScenaObjectComponent
     ],
     entryComponents: [NgbdModalContent],
     exports:[ ComponentsComponent ]
