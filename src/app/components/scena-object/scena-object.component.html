@@ -1,5 +1,6 @@
+<br>
+<br>
 <div id="containerCanvas" class="container">
-    <p>scena-object works!</p>
     <div class="row">
         <div id="canvas" class="col-sm"></div>
 
@@ -9,7 +10,7 @@
                     <div class="d-flex justify-content-center my-4">
                         <div class="w-75">
                           <span>Llargada:</span>  
-                          <input type="range" class="custom-range" id="largoCubo" [(ngModel)]="largoCubo" min="1" max="10">
+                          <input type="range" class="custom-range" id="largoCubo" [(ngModel)]="largoCubo" min="1" max="10" (ngModelChange)="onChange('Llargada', $event)">
                         </div>
                         <span class="font-weight-bold text-primary ml-2 valueSpan2">{{largoCubo}}</span>
                     </div>
@@ -19,7 +20,7 @@
                     <div class="d-flex justify-content-center my-4">
                         <div class="w-75">
                           <span>Altura:</span>  
-                          <input type="range" class="custom-range" id="alturaCubo" [(ngModel)]="alturaCubo" min="1" max="10">
+                          <input type="range" class="custom-range" id="alturaCubo" [(ngModel)]="alturaCubo" min="1" max="10" (ngModelChange)="onChange('Altura', $event)">
                         </div>
                         <span class="font-weight-bold text-primary ml-2 valueSpan2">{{alturaCubo}}</span>
                     </div>
@@ -29,7 +30,7 @@
                     <div class="d-flex justify-content-center my-4">
                         <div class="w-75">
                           <span>Amplada:</span>  
-                          <input type="range" class="custom-range" id="ampladaCubo" [(ngModel)]="ampladaCubo" min="1" max="10">
+                          <input type="range" class="custom-range" id="ampladaCubo" [(ngModel)]="ampladaCubo" min="1" max="10" (ngModelChange)="onChange('Amplada', $event)">
                         </div>
                         <span class="font-weight-bold text-primary ml-2 valueSpan2">{{ampladaCubo}}</span>
                     </div>
@@ -38,7 +39,7 @@
                     <div class="d-flex justify-content-center my-4">
                         <div class="w-75">
                           <span>Color:</span>  
-                          <input type="color" class="custom-range" id="colorCubo" [(ngModel)]="colorCubo">
+                          <input type="color" class="custom-range" id="colorCubo" [(ngModel)]="colorCubo" (ngModelChange)="onChange('Color', $event)">
                         </div>
                     </div>
                 </div>
@@ -46,7 +47,7 @@
                     <div class="d-flex justify-content-center my-4">
                         <div class="w-75">
                           <span>RotacióX:</span>  
-                          <input type="range" class="custom-range" id="rotacionXCubo" [(ngModel)]="rotacionXCubo" min="0.0" max="0.5" step="0.01">
+                          <input type="range" class="custom-range" id="rotacionXCubo" [(ngModel)]="rotacionXCubo" min="0.0" max="0.5" step="0.01" (ngModelChange)="onChange('RotacioX', $event)">
                         </div>
                         <span class="font-weight-bold text-primary ml-2 valueSpan2">{{rotacionXCubo}}</span>
                     </div>
@@ -55,7 +56,7 @@
                     <div class="d-flex justify-content-center my-4">
                         <div class="w-75">
                           <span>RotacióY:</span>  
-                          <input type="range" class="custom-range" id="rotacionYCubo" [(ngModel)]="rotacionYCubo" min="0.0" max="0.5" step="0.01">
+                          <input type="range" class="custom-range" id="rotacionYCubo" [(ngModel)]="rotacionYCubo" min="0.0" max="0.5" step="0.01" (ngModelChange)="onChange('RotacioY', $event)">
                         </div>
                         <span class="font-weight-bold text-primary ml-2 valueSpan2">{{rotacionYCubo}}</span>
                     </div>
@@ -64,7 +65,7 @@
                     <div class="d-flex justify-content-center my-4">
                         <div class="w-75">
                           <span>Animació:</span>  
-                          <select  class="custom-range" id="animacion" [(ngModel)]="animacion">
+                          <select  class="custom-range" id="animacion" [(ngModel)]="animacion" (ngModelChange)="onChange('Animacio', $event)">
                               <option value="true">True</option>
                               <option value="false">False</option>
                             </select>
