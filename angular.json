@@ -27,7 +27,8 @@
               "src/assets/css/nucleo-icons.css"
             ],
             "scripts": [
-              "src/assets/js/three.js"
+              "src/assets/js/three.js",
+              "node_modules/jquery/dist/jquery.min.js"
             ]
           },
           "configurations": {
