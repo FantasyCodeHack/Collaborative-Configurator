@@ -1,6 +1,7 @@
 <br>
 <br>
 <div id="containerCanvas" class="container">
+    <p class="countUsers">Hi ha <span>{{clients}}</span> client(s) connectats.</p>
     <div class="row">
         <div id="canvas" class="col-sm"></div>
 
@@ -58,6 +59,14 @@
                     </div>
                 </div>
                 
+                <div class="col-sm panel">
+                    <div class="d-flex justify-content-center my-4">
+                        <div class="w-75">
+                          <button id="buttonControlVersion" class="btn btn-danger btn-round"  (click)="fabrica()">Reiniciar</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 

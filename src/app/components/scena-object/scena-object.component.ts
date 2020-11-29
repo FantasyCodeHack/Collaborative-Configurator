@@ -15,10 +15,19 @@ export class ScenaObjectComponent implements OnInit {
   largoCubo   = 1;
   alturaCubo  = 1;
   ampladaCubo = 1;
-  colorCubo = "#fff";
-  rotacionXCubo = 0.01;
-  rotacionYCubo = 0.01;
-  animacion = true;
+  colorCubo   = "#fff";
+  animacion   = true;
+  clients     = 0;
+
+  fabricLargoCubo   = 1;
+  fabricAlturaCubo  = 1;
+  fabricAmpladaCubo = 1;
+  fabricColorCubo   = "#fff";
+  fabricAnimacion   = true;
+  fabricClients     = 0;
+
+  enable_rollback = false
+
   constructor(private webSocketService: WebSocketService) { }
   
   scene
@@ -26,7 +35,7 @@ export class ScenaObjectComponent implements OnInit {
   ngOnInit() {
     this.scene = new THREE.Scene();
     this.webSocketService.createObservableSocket('ws://192.168.1.203:8999').subscribe(data => {
-      this.updateValues(data)            
+      this.updateValues(data)
     })
 
     console.log(this.largoCubo)
@@ -39,15 +48,16 @@ export class ScenaObjectComponent implements OnInit {
   }
 
   updateValues(data){
+
     let obj = JSON.parse(data);
     console.log(obj)
+
     this.largoCubo   = parseInt(obj.Llargada);
     this.alturaCubo  = parseInt(obj.Altura);
     this.ampladaCubo = parseInt(obj.Amplada);
     this.colorCubo   = obj.Color;
-    this.animacion = obj.Animacio;
-
-    console.log(this.colorCubo)
+    this.animacion   = obj.Animacio;
+    this.clients     = obj.clients;
 
     this.deleteCanvas();
 
@@ -103,4 +113,13 @@ export class ScenaObjectComponent implements OnInit {
       canvas[i].remove();
     }
   }
+
+  fabrica() {
+    this.onChange("Llargada", String(this.fabricLargoCubo));
+    this.onChange("Altura", String(this.fabricAlturaCubo));
+    this.onChange("Amplada", String(this.fabricAmpladaCubo));
+    this.onChange("Color", String(this.fabricColorCubo));
+    this.onChange("Animacio", String(this.fabricAnimacion));
+  }
+
 }
