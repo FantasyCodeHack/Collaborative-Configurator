@@ -2,6 +2,7 @@ import { WebSocketService } from './../../services/websocket.service';
 import { Component, OnInit } from '@angular/core';
 import * as THREE from './../../../assets/js/three.js';
 import { CubeCamera, Mesh, WebGLRenderer } from 'three';
+import { getValueInRange } from '@ng-bootstrap/ng-bootstrap/util/util';
 
 @Component({
   selector: 'app-scena-object',
@@ -44,11 +45,11 @@ export class ScenaObjectComponent implements OnInit {
     this.alturaCubo  = parseInt(obj.Altura);
     this.ampladaCubo = parseInt(obj.Amplada);
     this.colorCubo   = obj.Color;
-    this.rotacionXCubo = parseFloat(obj.RotacioX);
-    this.rotacionYCubo = parseFloat(obj.RotacioY);;
     this.animacion = obj.Animacio;
 
     console.log(this.colorCubo)
+
+    this.deleteCanvas();
 
     //Objecto div donde se colocara el canvas
     const container = document.getElementById( 'canvas' );
@@ -58,8 +59,13 @@ export class ScenaObjectComponent implements OnInit {
     //Definimos el render de la web. El tamaño sera todo lo posible de largo y limitado a lo alto.
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize( (window.innerWidth / 2), (window.innerHeight / 2) );
+    //Colocamos id al canvas de la animación
+    renderer.domElement.id = 'canvasCubo';
     //Colocar la camara dentro del div 'canvas'
     container.appendChild( renderer.domElement );
+    //Aplicar estilos
+    document.getElementById('canvasCubo').style.border = "5px solid #fff";
+    document.getElementById('canvasCubo').style.borderRadius = "20px";
 
     const geometry = new THREE.BoxGeometry(this.largoCubo, this.alturaCubo, this.ampladaCubo);
     const material = new THREE.MeshBasicMaterial( { color: this.colorCubo } );
@@ -79,7 +85,22 @@ export class ScenaObjectComponent implements OnInit {
       renderer.render( scene, camera );
     };
 
-    animate();
+    if(this.getValueOfAnimate()){
+      animate();
+    }else{
+      renderer.render( scene, camera );
+    }
   }
   
+  getValueOfAnimate(){
+    return this.animacion
+  }
+
+  deleteCanvas(){
+    var i
+    const canvas = document.getElementById('canvas').children; 
+    for(i = 0; i < canvas.length; i++){
+      canvas[i].remove();
+    }
+  }
 }
